@@ -7,7 +7,7 @@ const {
   approveLoan
 } = require('../Controllers/loanController');
 
-const { authenticate, isAdmin } = require('../Middleware/Auth');
+const { authenticate, isAdmin } = require('../Middleware/auth');
 const router = express.Router();
 
 /* Loan request submitted by users */
