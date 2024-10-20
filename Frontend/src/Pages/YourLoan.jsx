@@ -22,7 +22,7 @@ const Home = () => {
     setIsLoading(true);
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:8080/api/userloan', {
+      const response = await fetch('https://pocketloan-techdome-assignment.onrender.com/api/userloan', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ const Home = () => {
   const handlePayment = async (repaymentId, repaymentAmount) => {
     const token = localStorage.getItem('token');
     try {
-      const response = await fetch(`http://localhost:8080/api/repayments/${loanData._id}`, {
+      const response = await fetch(`https://pocketloan-techdome-assignment.onrender.com/api/repayments/${loanData._id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
