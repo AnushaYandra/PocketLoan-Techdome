@@ -75,9 +75,9 @@ const Signup = () => {
             
             <button type='submit' className='button shadow-custom rounded-md py-1 px-6 w-full md:w-auto'>Register!</button>
 
-            <div className='flex items-center justify-center gap-2'>
+            <div className='flex items-center justify-center gap-1 md:gap-2'>
                 <h3 className='text-dark-brown'>Have an account?</h3>
-                <Link to="/Login"> <button className='button shadow-custom rounded-md py-1 px-2 w-full md:w-auto'>Log in</button> </Link>
+                <Link to="/Login"> <button className='button shadow-custom rounded-md py-1 px-4 w-full md:w-auto'>Log in</button> </Link>
             </div>
     
             <Link to="/" className='hover:underline hover:text-dark-green text-dark-brown'>Back to Home</Link>
