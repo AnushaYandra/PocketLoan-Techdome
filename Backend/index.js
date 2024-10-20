@@ -11,9 +11,11 @@ dotenv.config();
 const app = express();
 
 // Middleware
+const allowedOrigins = ['https://pocket-loan.vercel.app', 'http://localhost:3000'];
 app.use(cors({
-    origin: https://pocket-loan.vercel.app/', 
-  credentials: true,
+    origin: allowedOrigins,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true, // If you need to allow credentials (like cookies)
 }));
 app.use(express.json());
 
