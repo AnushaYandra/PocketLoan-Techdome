@@ -12,9 +12,8 @@ const app = express();
 
 // Middleware
 app.use(cors({
-    origin : ["https://mini-loan-techdome-asg.vercel.app/"],
-    methods : ["GET", "POST", "DELETE", "PATCH"],
-    credentials : true
+    origin: 'http://localhost:3000', // Allow requests from this origin
+  credentials: true,
 }));
 app.use(express.json());
 
