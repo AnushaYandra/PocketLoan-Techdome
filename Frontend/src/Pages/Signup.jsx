@@ -14,7 +14,7 @@ const Signup = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:8080/api/register', {
+      const response = await fetch('https://pocketloan-techdome-assignment.onrender.com/api/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
