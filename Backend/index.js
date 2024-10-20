@@ -12,7 +12,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-    origin: 'http://localhost:3000', // Allow requests from this origin
+    origin: https://pocket-loan.vercel.app/', 
   credentials: true,
 }));
 app.use(express.json());
