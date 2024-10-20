@@ -30,5 +30,8 @@ Pocket Loan is a mini-loan application designed to provide a seamless borrowing 
 5. Styling: CSS, Bootstrap, TailwindCSS
 6. Version Control: Git, GitHub
 
+## Important Note on Loading Time
+Please note that the app might take a minute to load if it hasn't been used for a while. So, when you're registering, please wait a bit for it to respond. 
+
 ## Live Link
 https://pocket-loan.vercel.app/
