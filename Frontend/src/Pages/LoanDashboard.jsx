@@ -19,7 +19,7 @@ const Home = () => {
     setIsLoading(true);
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:8080/api/admin/dashboard', {
+      const response = await fetch('https://pocketloan-techdome-assignment.onrender.com/api/admin/dashboard', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ const Home = () => {
     const token = localStorage.getItem('token');
     try {
       
-      const response = await fetch(`http://localhost:8080/api/admin/dashboard/${loanId}`, {
+      const response = await fetch(`https://pocketloan-techdome-assignment.onrender.com/api/admin/dashboard/${loanId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
