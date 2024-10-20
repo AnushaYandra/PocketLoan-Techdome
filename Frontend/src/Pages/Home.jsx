@@ -38,7 +38,7 @@ const Home = () => {
         return;
       }
       
-      const response = await fetch('http://localhost:8080/api/userloan', {
+      const response = await fetch('https://pocketloan-techdome-assignment.onrender.com/api/userloan', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
