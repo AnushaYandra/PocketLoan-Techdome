@@ -14,7 +14,7 @@ const app = express();
 const allowedOrigins = ['https://pocket-loan.vercel.app', 'http://localhost:3000'];
 app.use(cors({
     origin: allowedOrigins,
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    methods: ['GET', 'POST', 'PATCH', 'DELETE'],
     credentials: true, // If you need to allow credentials (like cookies)
 }));
 app.use(express.json());
