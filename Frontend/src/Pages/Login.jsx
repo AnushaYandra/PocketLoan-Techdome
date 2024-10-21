@@ -26,6 +26,7 @@ const Login = () => {
         if (!response.ok) {
           const errorData = await response.json(); // Try to parse the error response
           throw new Error(errorData.error || 'An error occurred'); // Handle error
+          toast.error('An error occurred');
         }
     
         const data = await response.json();
@@ -44,6 +45,7 @@ const Login = () => {
         }
       } catch (error) {
         console.error('Error:', error);
+        toast.error(data.error);
       }
     }
   
