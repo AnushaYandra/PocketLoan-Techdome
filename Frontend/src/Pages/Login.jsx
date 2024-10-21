@@ -40,6 +40,7 @@ const Login = () => {
           navigate('/'); 
         } else {
           console.error(data.error);
+          toast.error(data.error);
         }
       } catch (error) {
         console.error('Error:', error);
