@@ -31,7 +31,7 @@ Pocket Loan is a mini-loan application designed to provide a seamless borrowing 
 6. Version Control: Git, GitHub
 
 ## Important Note on Loading Time
-Please note that the app might take a minute to load if it hasn't been used for a while. So, when you're registering, please wait a bit for it to respond. 
+Please note that the app may take a minute to load if it hasn't been used recently. When registering, kindly wait for a moment for the app to respond. Typically, servers on free tier plans go idle after around 30 minutes of inactivity, and it can take about 50 seconds to "wake" them up again.
 
 ## Live Link
 https://pocket-loan.vercel.app/
