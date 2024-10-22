@@ -85,60 +85,63 @@ const Home = () => {
       {userDetails ? (
         <section className="py-1 bg-blueGray-50">
           <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4 mx-auto mt-5">
-            <div className="relative flex flex-col min-w-0 break-words bg-white/30 w-full mb-6 shadow-custom rounded-xl ">
+            <div className="relative flex flex-col min-w-0 break-words bg-white/30 w-full mb-6 shadow-custom rounded-xl">
               <div className="block w-full overflow-x-auto">
-                <table className="items-center bg-transparent w-full border-collapse ">
-                  <thead>
-                    <tr className='bg-very-lightblue'>
-                      <th scope="col" className="px-6 text-black/70 align-middle border border-solid border-blueGray-100 py-3 text-md border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Term No.</th>
-                      <th scope="col" className="px-6 text-black/70 align-middle border border-solid border-blueGray-100 py-3 text-md border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Repayment Amount</th>
-                      <th scope="col" className="px-6 text-black/70 align-middle border border-solid border-blueGray-100 py-3 text-md border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Due Date</th>
-                      <th scope="col" className="px-6 text-black/70 align-middle border border-solid border-blueGray-100 py-3 text-md border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Status</th>
-                      <th scope="col" className="px-6 text-black/70 align-middle border border-solid border-blueGray-100 py-3 text-md border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {isLoading ? (
-                      <tr>
-                        <td colSpan="5" className='text-center'>Loading...</td>
+                {/* Added scroll container */}
+                <div className="max-h-80 overflow-y-auto">
+                  <table className="items-center bg-transparent w-full border-collapse ">
+                    <thead>
+                      <tr className='bg-very-lightblue'>
+                        <th scope="col" className="px-6 text-black/70 align-middle border border-solid border-blueGray-100 py-3 text-md border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Term No.</th>
+                        <th scope="col" className="px-6 text-black/70 align-middle border border-solid border-blueGray-100 py-3 text-md border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Repayment Amount</th>
+                        <th scope="col" className="px-6 text-black/70 align-middle border border-solid border-blueGray-100 py-3 text-md border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Due Date</th>
+                        <th scope="col" className="px-6 text-black/70 align-middle border border-solid border-blueGray-100 py-3 text-md border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Status</th>
+                        <th scope="col" className="px-6 text-black/70 align-middle border border-solid border-blueGray-100 py-3 text-md border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Action</th>
                       </tr>
-                    ) : loanData ? (
-                      loanData.scheduledRepayments.length > 0 ? loanData.scheduledRepayments.map((repayment, index) => (
-                        <tr key={repayment._id}>
-                          <td className="px-6 py-4">{index + 1}</td>
-                          <td className="px-6 py-4">{repayment.amount}</td>
-                          <td className="px-6 py-4">{new Date(repayment.dueDate).toLocaleDateString()}</td>
-                          <td className="px-6 py-4">{repayment.status}</td>
-                          <td className="px-6 py-4">
-                            {repayment.status === 'APPROVED' && (
-                              <button
-                                onClick={() => handlePayment(repayment._id, repayment.amount)}
-                                className={`text-white px-4 py-2 rounded button shadow-custom`}
-                                style={{ cursor: 'pointer' }}
-                              >
-                                Pay
-                              </button>
-                            )}
-                          </td>
-                        </tr>
-                      )) : (
+                    </thead>
+                    <tbody>
+                      {isLoading ? (
                         <tr>
-                          <td colSpan="5" className='text-center'>No scheduled repayments found.</td>
+                          <td colSpan="5" className='text-center'>Loading...</td>
                         </tr>
-                      )
-                    ) : (
-                      <tr>
-                        <td colSpan="5" className='text-center py-5'>No loan found.</td>
-                      </tr>
-                    )}
-                  </tbody>
-                </table>
+                      ) : loanData ? (
+                        loanData.scheduledRepayments.length > 0 ? loanData.scheduledRepayments.map((repayment, index) => (
+                          <tr key={repayment._id}>
+                            <td className="px-6 py-4">{index + 1}</td>
+                            <td className="px-6 py-4">{repayment.amount}</td>
+                            <td className="px-6 py-4">{new Date(repayment.dueDate).toLocaleDateString()}</td>
+                            <td className="px-6 py-4">{repayment.status}</td>
+                            <td className="px-6 py-4">
+                              {repayment.status === 'APPROVED' && (
+                                <button
+                                  onClick={() => handlePayment(repayment._id, repayment.amount)}
+                                  className={`text-white px-4 py-2 rounded button shadow-custom`}
+                                  style={{ cursor: 'pointer' }}
+                                >
+                                  Pay
+                                </button>
+                              )}
+                            </td>
+                          </tr>
+                        )) : (
+                          <tr>
+                            <td colSpan="5" className='text-center'>No scheduled repayments found.</td>
+                          </tr>
+                        )
+                      ) : (
+                        <tr>
+                          <td colSpan="5" className='text-center py-5'>No loan found.</td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
           <p className='text-center'> You will be able to repay the loan once it has been approved.</p>
         </section>
-        
+
       ) : (
         <div className='text-center pt-12'>
           <h1 className='inline-block font-semibold text-lg text-dark-brown border-b-2 border-dashed border-brown'>Log in to check the status of your loan</h1>
